@@ -99,12 +99,12 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative mx-auto flex max-h-[88vh] w-full max-w-[92%] flex-col overflow-hidden rounded-2xl border border-[#43A0BA]/60 bg-black/90 shadow-2xl backdrop-blur-xl sm:max-w-lg"
+        className="relative mx-auto flex max-h-[88vh] w-full max-w-[92%] flex-col overflow-hidden rounded-2xl border border-[#B8860B]/60 bg-black/90 shadow-2xl backdrop-blur-xl sm:max-w-lg"
       >
         <button
           onClick={onClose}
           aria-label="Close guestbook"
-          className="absolute right-3 top-3 rounded-full border border-[#43A0BA]/60 p-1.5 text-[#F4F4F4] transition-colors hover:bg-[#43A0BA]/10"
+          className="absolute right-3 top-3 rounded-full border border-[#B8860B]/60 p-1.5 text-[#F4F4F4] transition-colors hover:bg-[#B8860B]/10"
         >
           <X className="h-4 w-4" strokeWidth={2.5} />
         </button>
@@ -122,7 +122,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
             onChange={(e) => setName(e.target.value)}
             maxLength={80}
             placeholder="Your name"
-            className="w-full rounded-lg border border-[#43A0BA]/50 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#43A0BA]"
+            className="w-full rounded-lg border border-[#B8860B]/50 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#B8860B]"
           />
           <div>
             <textarea
@@ -131,7 +131,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
               maxLength={MAX_CHARS}
               rows={3}
               placeholder="Your Blessing"
-              className="w-full resize-none rounded-lg border border-[#43A0BA]/50 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#43A0BA]"
+              className="w-full resize-none rounded-lg border border-[#B8860B]/50 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#B8860B]"
             />
             <p className="mt-1 text-right font-body text-xs text-[#F4F4F4]/50">
               {note.length}/{MAX_CHARS}

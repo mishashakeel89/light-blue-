@@ -1,9 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-const INVITATION_SRC = "/invitation.webp";
-const GATE_SRC = "/gate-new.webp";
+import { useEffect, useState } from "react";
 import { DiamondDust } from "@/components/DiamondDust";
 import { Guestbook } from "@/components/Guestbook";
+import gateAsset from "@/assets/GateImage.webp.asset.json";
+import invitationAsset from "@/assets/InvitationImage.webp.asset.json";
+
+const INVITATION_SRC = invitationAsset.url;
+const GATE_SRC = gateAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,7 +26,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "preload", as: "image", href: GATE_SRC, fetchpriority: "high" },
+      { rel: "preload", as: "image", href: GATE_SRC, fetchPriority: "high" },
       { rel: "prefetch", as: "image", href: INVITATION_SRC },
     ],
   }),
@@ -34,21 +37,49 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [opened, setOpened] = useState(false);
   const [guestbookOpen, setGuestbookOpen] = useState(false);
+  const [gateLoaded, setGateLoaded] = useState(false);
+  const [invitationLoaded, setInvitationLoaded] = useState(false);
+  const assetsLoaded = gateLoaded && invitationLoaded;
+
+  useEffect(() => {
+    const gateImage = new Image();
+    const invitationImage = new Image();
+
+    gateImage.onload = () => setGateLoaded(true);
+    gateImage.onerror = () => setGateLoaded(true);
+    invitationImage.onload = () => setInvitationLoaded(true);
+    invitationImage.onerror = () => setInvitationLoaded(true);
+    gateImage.src = GATE_SRC;
+    invitationImage.src = INVITATION_SRC;
+
+    return () => {
+      gateImage.onload = null;
+      gateImage.onerror = null;
+      invitationImage.onload = null;
+      invitationImage.onerror = null;
+    };
+  }, []);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-black">
+    <main className="relative min-h-screen overflow-hidden bg-primary">
       {/* Invitation background */}
       <div
-        className="fixed inset-0 z-0 bg-contain bg-center bg-no-repeat sm:bg-contain"
+        className={`fixed inset-0 z-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500 ${
+          opened && invitationLoaded ? "opacity-100" : "opacity-0"
+        }`}
         style={{ backgroundImage: `url(${INVITATION_SRC})` }}
-        aria-label="Wedding invitation with gold and ivory roses"
+        aria-label="Wedding invitation framed with white lilies and pearls"
         role="img"
       />
 
-      <DiamondDust />
+      {opened ? <DiamondDust /> : null}
 
       {/* Guestbook button */}
-      <div className="fixed inset-x-0 bottom-6 z-30 flex justify-center">
+      <div
+        className={`fixed inset-x-0 bottom-6 z-30 flex justify-center transition-opacity duration-500 ${
+          opened ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
         <button
           data-no-sparks
           onClick={() => setGuestbookOpen(true)}
@@ -62,7 +93,7 @@ function Index() {
 
       {/* The Gate */}
       <div
-        className={`fixed inset-0 z-40 cursor-pointer ${opened ? "pointer-events-none" : ""}`}
+        className={`fixed inset-0 z-40 cursor-pointer ${opened || !assetsLoaded ? "pointer-events-none" : ""}`}
         aria-hidden={opened}
         onClick={() => setOpened(true)}
       >
@@ -96,6 +127,19 @@ function Index() {
             Tap anywhere
           </span>
         </div>
+      </div>
+
+      {/* Opaque cover prevents the invitation from flashing before both images are ready. */}
+      <div
+        role="status"
+        aria-live="polite"
+        className={`fixed inset-0 z-50 flex items-center justify-center bg-primary transition-opacity duration-500 ${
+          assetsLoaded ? "pointer-events-none opacity-0" : "opacity-100"
+        }`}
+      >
+        <span className="font-body text-sm uppercase tracking-[0.3em] text-primary-foreground">
+          Loading
+        </span>
       </div>
     </main>
   );

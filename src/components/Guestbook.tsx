@@ -104,7 +104,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
         <button
           onClick={onClose}
           aria-label="Close guestbook"
-          className="absolute right-3 top-3 rounded-full border border-[#d29d98]/50 p-1.5 text-[#F4F4F4] transition-colors hover:bg-[#d29d98]/10"
+          className="absolute right-3 top-3 rounded-full border border-[#43A0BA]/60 p-1.5 text-[#F4F4F4] transition-colors hover:bg-[#43A0BA]/10"
         >
           <X className="h-4 w-4" strokeWidth={2.5} />
         </button>
@@ -122,7 +122,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
             onChange={(e) => setName(e.target.value)}
             maxLength={80}
             placeholder="Your name"
-            className="w-full rounded-lg border border-[#d29d98]/40 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#d29d98]"
+            className="w-full rounded-lg border border-[#43A0BA]/50 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#43A0BA]"
           />
           <div>
             <textarea
@@ -131,7 +131,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
               maxLength={MAX_CHARS}
               rows={3}
               placeholder="Your Blessing"
-              className="w-full resize-none rounded-lg border border-[#d29d98]/40 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#d29d98]"
+              className="w-full resize-none rounded-lg border border-[#43A0BA]/50 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#43A0BA]"
             />
             <p className="mt-1 text-right font-body text-xs text-[#F4F4F4]/50">
               {note.length}/{MAX_CHARS}

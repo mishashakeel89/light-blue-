@@ -2,11 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { DiamondDust } from "@/components/DiamondDust";
 import { Guestbook } from "@/components/Guestbook";
-import gateAsset from "@/assets/GateImage.webp.asset.json";
-import invitationAsset from "@/assets/InvitationImage.webp.asset.json";
 
-const INVITATION_SRC = invitationAsset.url;
-const GATE_SRC = gateAsset.url;
+// To re-theme for a new event, replace these two files in the public/ folder:
+const INVITATION_SRC = "/invitation.webp";
+const GATE_SRC = "/gate.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({

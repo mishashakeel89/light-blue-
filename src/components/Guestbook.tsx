@@ -99,7 +99,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative mx-auto flex max-h-[88vh] w-full max-w-[92%] flex-col overflow-hidden rounded-2xl border border-[#d29d98]/50 bg-black/90 shadow-2xl backdrop-blur-xl sm:max-w-lg"
+        className="relative mx-auto flex max-h-[88vh] w-full max-w-[92%] flex-col overflow-hidden rounded-2xl border border-[#43A0BA]/60 bg-black/90 shadow-2xl backdrop-blur-xl sm:max-w-lg"
       >
         <button
           onClick={onClose}
@@ -140,7 +140,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
           <button
             type="submit"
             disabled={sending || isFull}
-            className="w-full rounded-lg bg-[#d29d98] px-4 py-2 font-body text-sm font-medium tracking-wide text-[#1a1a1a] transition-colors hover:bg-[#d29d98]/90 disabled:opacity-50"
+            className="w-full rounded-lg bg-[#F4F4F4] px-4 py-2 font-body text-sm font-medium tracking-wide text-black transition-colors hover:bg-[#F4F4F4]/90 disabled:opacity-50"
           >
             {isFull ? "Guestbook Full" : sending ? "Sending" : "Send Blessing"}
           </button>

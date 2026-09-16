@@ -20,6 +20,7 @@ export type Database = {
           id: string
           message: string
           name: string
+          project_id: string 
         }
         Insert: {
           created_at?: string

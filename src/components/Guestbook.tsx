@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
+const CURRENT_PROJECT_ID = "Hania-Ali-Valima"; // Change this string for your next client
 type Message = {
   id: string;
   name: string;
@@ -31,6 +32,8 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
     const { data, count, error: err } = await supabase
       .from("guestbook_messages")
       .select("id,name,message,created_at", { count: "exact" })
+      .eq("project_id" as any, CURRENT_PROJECT_ID)
+ // <--- ADD THIS LINE
       .order("created_at", { ascending: false })
       .range(from, from + PAGE_SIZE - 1);
 
@@ -69,18 +72,19 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
 
     const { count } = await supabase
       .from("guestbook_messages")
-      .select("id", { count: "exact", head: true });
+      .select("id", { count: "exact", head: true })
+.eq("project_id" as any, CURRENT_PROJECT_ID); // <--- Add 'as any'
     if ((count ?? 0) >= MAX_MESSAGES) {
       setTotal(count ?? MAX_MESSAGES);
       setSending(false);
       setError("The guestbook is currently full");
       return;
     }
-
-    const { error: err } = await supabase.from("guestbook_messages").insert({
+   const { error: err } = await supabase.from("guestbook_messages").insert({
       name: name.trim().slice(0, 80),
       message: note.trim().slice(0, MAX_CHARS),
-    });
+      project_id: CURRENT_PROJECT_ID,
+    } as any); // <--- Add 'as any' here at the end of the object  
     setSending(false);
     if (err) {
       setError("Your message could not be saved. Please try again.");
@@ -150,7 +154,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
             </p>
           ) : null}
           {error ? (
-            <p className="text-center font-body text-xs text-red-300">{error}</p>
+            <p className="text-center font-body text-xs text-[#B8860B]">{error}</p>
           ) : null}
         </form>
 <div className="mt-5 flex-1 space-y-3 overflow-y-auto px-6 pb-6">

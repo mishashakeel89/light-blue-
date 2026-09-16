@@ -153,8 +153,36 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
             <p className="text-center font-body text-xs text-red-300">{error}</p>
           ) : null}
         </form>
-
-        <div className="mt-5 flex-1 space-y-3 overflow-y-auto px-6 pb-6">
+<div className="mt-5 flex-1 space-y-3 overflow-y-auto px-6 pb-6">
+          {messages.map((m) => (
+            <div
+              key={m.id}
+              // FIXED: changed from #d29d98 to #B8860B below
+              className="animate-in fade-in rounded-lg border border-[#B8860B]/40 bg-black/20 px-4 py-3 duration-700"
+            >
+              <p className="font-script text-xl text-[#F4F4F4]">{m.name}</p>
+              <p className="mt-1 font-body text-sm leading-relaxed text-[#F4F4F4]/85">
+                {m.message}
+              </p>
+            </div>
+          ))}
+          {!loading && messages.length === 0 ? (
+            <p className="text-center font-body text-sm text-[#F4F4F4]/60">
+              Be the first to leave a message
+            </p>
+          ) : null}
+          {hasMore ? (
+            <button
+              onClick={() => void loadPage(page + 1)}
+              disabled={loading}
+              // FIXED: changed from #d29d98 to #B8860B below
+              className="mx-auto block rounded-full border border-[#B8860B]/50 px-5 py-1.5 font-body text-xs tracking-widest text-[#F4F4F4] uppercase transition-colors hover:bg-[#B8860B]/10 disabled:opacity-50"
+            >
+              {loading ? "Loading" : "View More Blessings"}
+            </button>
+          ) : null}
+        </div>
+        {/* <div className="mt-5 flex-1 space-y-3 overflow-y-auto px-6 pb-6">
           {messages.map((m) => (
             <div
               key={m.id}
@@ -180,7 +208,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
               {loading ? "Loading" : "View More Blessings"}
             </button>
           ) : null}
-        </div>
+        </div> */}
       </div>
     </div>
   );

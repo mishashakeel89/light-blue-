@@ -158,7 +158,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
           {messages.map((m) => (
             <div
               key={m.id}
-              className="animate-in fade-in rounded-lg border border-[#d29d98]/40 bg-black/20 px-4 py-3 duration-700"
+              className="animate-in fade-in rounded-lg border border-[#B8860B]/40 bg-black/20 px-4 py-3 duration-700"
             >
               <p className="font-script text-xl text-[#F4F4F4]">{m.name}</p>
               <p className="mt-1 font-body text-sm leading-relaxed text-[#F4F4F4]/85">
@@ -175,7 +175,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
             <button
               onClick={() => void loadPage(page + 1)}
               disabled={loading}
-              className="mx-auto block rounded-full border border-[#d29d98]/50 px-5 py-1.5 font-body text-xs tracking-widest text-[#F4F4F4] uppercase transition-colors hover:bg-[#d29d98]/10 disabled:opacity-50"
+              className="mx-auto block rounded-full border border-[#B8860B]/50 px-5 py-1.5 font-body text-xs tracking-widest text-[#F4F4F4] uppercase transition-colors hover:bg-[#B8860B]/10 disabled:opacity-50"
             >
               {loading ? "Loading" : "View More Blessings"}
             </button>

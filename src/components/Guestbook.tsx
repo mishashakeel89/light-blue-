@@ -150,7 +150,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
             </p>
           ) : null}
           {error ? (
-            <p className="text-center font-body text-xs text-red-300">{error}</p>
+            <p className="text-center font-body text-xs text-[#B8860B]">{error}</p>
           ) : null}
         </form>
 <div className="mt-5 flex-1 space-y-3 overflow-y-auto px-6 pb-6">

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
-const CURRENT_PROJECT_ID = "Hania-Ali-Valima"; // Change this string for your next client
+const CURRENT_PROJECT_ID = "black and golden"; // Change this string for your next client
 type Message = {
   id: string;
   name: string;

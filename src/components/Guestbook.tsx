@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
-const CURRENT_PROJECT_ID = "greeb and white/golden"; // Change this string for your next client
+const CURRENT_PROJECT_ID = "light blue and golden"; // Change this string for your next client
 type Message = {
   id: string;
   name: string;
@@ -103,12 +103,12 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative mx-auto flex max-h-[88vh] w-full max-w-[92%] flex-col overflow-hidden rounded-2xl border border-[#C89966]/60 bg-black/90 shadow-2xl backdrop-blur-xl sm:max-w-lg"
+        className="relative mx-auto flex max-h-[88vh] w-full max-w-[92%] flex-col overflow-hidden rounded-2xl border border-[##FFFFFF]/60 bg-black/90 shadow-2xl backdrop-blur-xl sm:max-w-lg"
       >
         <button
           onClick={onClose}
           aria-label="Close guestbook"
-          className="absolute right-3 top-3 rounded-full border border-[#C89966]/60 p-1.5 text-[#F4F4F4] transition-colors hover:bg-[#B8860B]/10"
+          className="absolute right-3 top-3 rounded-full border border-[#FFFFFF]/60 p-1.5 text-[#F4F4F4] transition-colors hover:bg-[#B8860B]/10"
         >
           <X className="h-4 w-4" strokeWidth={2.5} />
         </button>
@@ -126,7 +126,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
             onChange={(e) => setName(e.target.value)}
             maxLength={80}
             placeholder="Your name"
-            className="w-full rounded-lg border border-[#C89966]/50 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#C89966]"
+            className="w-full rounded-lg border border-[#FFFFFF]/50 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#FFFFFF]"
           />
           <div>
             <textarea
@@ -135,7 +135,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
               maxLength={MAX_CHARS}
               rows={3}
               placeholder="Your Blessing"
-              className="w-full resize-none rounded-lg border border-[#C89966]/50 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#C89966]"
+              className="w-full resize-none rounded-lg border border-[#FFFFFF]/50 bg-black/20 px-3 py-2 font-body text-sm text-[#F4F4F4] outline-none placeholder:text-[#F4F4F4]/60 focus:border-[#FFFFFF]"
             />
             <p className="mt-1 text-right font-body text-xs text-[#F4F4F4]/50">
               {note.length}/{MAX_CHARS}
@@ -162,7 +162,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
             <div
               key={m.id}
               // FIXED: changed from #d29d98 to #B8860B below
-              className="animate-in fade-in rounded-lg border border-[#C89966]/40 bg-black/20 px-4 py-3 duration-700"
+              className="animate-in fade-in rounded-lg border border-[#FFFFFF]/40 bg-black/20 px-4 py-3 duration-700"
             >
               <p className="font-script text-xl text-[#F4F4F4]">{m.name}</p>
               <p className="mt-1 font-body text-sm leading-relaxed text-[#F4F4F4]/85">
@@ -180,7 +180,7 @@ export function Guestbook({ onClose }: { onClose: () => void }) {
               onClick={() => void loadPage(page + 1)}
               disabled={loading}
               // FIXED: changed from #d29d98 to #B8860B below
-              className="mx-auto block rounded-full border border-[#C89966]/50 px-5 py-1.5 font-body text-xs tracking-widest text-[#F4F4F4] uppercase transition-colors hover:bg-[#B8860B]/10 disabled:opacity-50"
+              className="mx-auto block rounded-full border border-[#FFFFFF]/50 px-5 py-1.5 font-body text-xs tracking-widest text-[#F4F4F4] uppercase transition-colors hover:bg-[#B8860B]/10 disabled:opacity-50"
             >
               {loading ? "Loading" : "View More Blessings"}
             </button>

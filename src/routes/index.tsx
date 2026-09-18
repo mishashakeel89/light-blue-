@@ -82,7 +82,7 @@ function Index() {
         <button
           data-no-sparks
           onClick={() => setGuestbookOpen(true)}
-          className="rounded-full border border-[#B8860B]/50 bg-black/30 px-7 py-2.5 font-body text-sm tracking-widest text-[#F4F4F4] uppercase backdrop-blur-md transition-all hover:shadow-[#D4AF37] hover:bg-[#B8860B]/20 hover:shadow-[0_0_20px_rgba(184,134,11,0.5)]"
+          className="rounded-full border border-[#FFFFFF]/50 bg-black/30 px-7 py-2.5 font-body text-sm tracking-widest text-[#F4F4F4] uppercase backdrop-blur-md transition-all hover:shadow-[#FFFFFF] hover:bg-[#FFFFFF]/20 hover:shadow-[0_0_20px_rgba(184,134,11,0.5)]"
         >
           Guestbook
         </button>

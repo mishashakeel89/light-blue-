@@ -76,8 +76,8 @@ export function DiamondDust() {
         if (f.life <= 0) return false;
         const r = 26 * f.life + 6;
         const g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, r);
-        g.addColorStop(0, `rgba(240,245,246,${0.9 * f.life})`);
-        g.addColorStop(1, "rgba(240,245,246,0)");
+        g.addColorStop(0, `rgba(212,175,55,${0.9 * f.life})`);
+        g.addColorStop(1, "rgba(212,175,55,0)");
         ctx.fillStyle = g;
         ctx.beginPath();
         ctx.arc(f.x, f.y, r, 0, Math.PI * 2);
@@ -102,7 +102,7 @@ export function DiamondDust() {
         const twinkle = 0.6 + Math.random() * 0.4;
 
         if (p.trail.length > 1) {
-          ctx.strokeStyle = `rgba(240,245,246,${alpha * 0.25})`;
+          ctx.strokeStyle = `rgba(212,175,55,${alpha * 0.25})`;
           ctx.lineWidth = p.size * 0.7;
           ctx.beginPath();
           p.trail.forEach((pt, i) => {
@@ -113,7 +113,7 @@ export function DiamondDust() {
           ctx.stroke();
         }
 
-        ctx.fillStyle = `rgba(240,245,246,${alpha * twinkle})`;
+        ctx.fillStyle = `rgba(212,175,55,${alpha * twinkle})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();

@@ -62,14 +62,15 @@ function Index() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-primary">
       {/* Invitation background */}
-      <div
-        className={`fixed inset-0 z-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500 ${
-          opened && invitationLoaded ? "opacity-100" : "opacity-0"
-        }`}
-        style={{ backgroundImage: `url(${INVITATION_SRC})` }}
-        aria-label="Wedding invitation framed with white lilies and pearls"
-        role="img"
-      />
+        <div
+  className={`fixed inset-0 z-0 bg-contain bg-center bg-no-repeat transition-opacity duration-500 ${
+    opened && invitationLoaded ? "opacity-100" : "opacity-0"
+  }`}
+  style={{ 
+    backgroundImage: `url(${INVITATION_SRC})`,
+    backgroundColor: '#000000' 
+  }}
+/>
 
       {opened ? <DiamondDust /> : null}
 
